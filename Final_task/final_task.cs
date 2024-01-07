@@ -1,9 +1,11 @@
-﻿string [] CreateArrayByUser(int size)
+﻿string [] CreateArrayByUser()
 {
+    Console.WriteLine("Введите размер массива");
+    int size = Convert.ToInt32(Console.ReadLine());
     string[] arr = new string [size];
     for(int i = 0; i < arr.Length; i++)
     {
-        Console.WriteLine("Введите элемент массива");
+        Console.WriteLine("Введите элемент массива(строка)");
         arr[i]= Console.ReadLine();
     }
     return arr;
@@ -47,10 +49,7 @@ string [] ArrayWhithElemLessThanOrEqualThree (string[] array, int size)
     return newArr;
 }
 
-Console.WriteLine("Введите размер массива");
-int sizeArray = Convert.ToInt32(Console.ReadLine());
-string[] arr = CreateArrayByUser(sizeArray);
+string[] arr = CreateArrayByUser();
 PrintArray(arr);
-int count = CountOfElem(arr);
 Console.WriteLine();
-PrintArray(ArrayWhithElemLessThanOrEqualThree(arr, count));
+PrintArray(ArrayWhithElemLessThanOrEqualThree(arr, CountOfElem(arr)));
